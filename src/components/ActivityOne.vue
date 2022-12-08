@@ -6,30 +6,30 @@ import { ref } from "vue";
 // function ✅
 let number = ref(0);
 
-function increment() {
-  number.value++;
+function increment(num) {
+  number.value += num;
 }
 
-function decrement() {
-  number.value--;
+function decrement(num) {
+  number.value -= num;
 }
 
-function increment_by_two() {
-  number.value += 2;
-}
-
-function decrement_by_two() {
-  number.value -= 2;
-}
 </script>
 
 <template>
   <div class="number">{{ number }}</div>
   <div class="wrapper">
-    <button @click="increment()">Increment</button>
-    <button @click="decrement()">Decrement</button>
-    <button @click="increment_by_two()">Increment by 2</button>
-    <button @click="decrement_by_two()">Decrement by 2</button>
+    <button @click="increment(1)">Increment by 1</button>
+    <button @click="decrement(1)">Decrement by 1</button>
+
+    <button @click="increment(2)">Increment by 2</button>
+    <button @click="decrement(2)">Decrement by 2</button>
+
+    <button @click="increment(3)">Increment by 3</button>
+    <button @click="decrement(3)">Decrement by 3</button>
+
+    <button @click="increment(4)">Increment by 4</button>
+    <button @click="decrement(4)">Decrement by 4</button>
   </div>
 </template>
 
