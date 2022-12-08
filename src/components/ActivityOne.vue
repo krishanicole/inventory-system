@@ -5,13 +5,14 @@ import { ref } from "vue";
 // @click ✅
 // function ✅
 let number = ref(0);
+let items = ref([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
 function increment(num) {
   number.value += num;
 }
 
 function decrement(num) {
-  number.value -= num;
+  number.value-=num;
 }
 
 </script>
@@ -19,18 +20,17 @@ function decrement(num) {
 <template>
   <div class="number">{{ number }}</div>
   <div class="wrapper">
-    <button @click="increment(1)">Increment by 1</button>
-    <button @click="decrement(1)">Decrement by 1</button>
-
-    <button @click="increment(2)">Increment by 2</button>
-    <button @click="decrement(2)">Decrement by 2</button>
-
-    <button @click="increment(3)">Increment by 3</button>
-    <button @click="decrement(3)">Decrement by 3</button>
-
-    <button @click="increment(4)">Increment by 4</button>
-    <button @click="decrement(4)">Decrement by 4</button>
+    <button @click="increment (1)">Increment</button>
+    <button @click="decrement (1)">Decrement</button>
+</div>
+    <ul>
+  <div v-for="item in items" :key="item">
+  <button @click="increment(item)">Increment {{ item }}</button>
+  <button @click="decrement(item)">Decrement {{ item }}</button>
   </div>
+ 
+</ul>
+
 </template>
 
 <style>
