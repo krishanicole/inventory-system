@@ -1,30 +1,208 @@
-<script setup>
-import { ref } from "vue";
-let number = ref(0);
-let number2 = ref(0);
-
-let result = ref(0);
-
-function add() {
-  result.value = parseInt(number.value) + parseInt(number2.value);
-}
-
-function subtract() {
-  result.value = parseInt(number.value) - parseInt(number2.value);
+<script>
+export default {
+  data() {
+      return {
+          input: '',
+          output:'',
+          calculated:false
+      }
+  },
+  methods: {
+      clear() {
+          this.input=''
+          this.output=''
+      },
+      cancel(){
+          //this.input = this.input.slice(0, -1);
+          const arr = this.input.split('')
+          arr.pop()
+          this.input = arr.join('')
+      },
+      enter(keys){
+          if(!this.calculated){
+              this.input +=keys
+          }
+          else{
+              this.calculated = false
+              this.input=''
+              this.output=''
+              this.input +=keys                
+          }
+      },
+      equal(){
+          if(this.input.includes('%')){
+              const arr = this.input.split('')
+              const newArr = []
+              for(let i=0;i<arr.length;i++){
+                  if(arr[i]!='%'){
+                      newArr.push(arr[i])
+                  }
+                  else{
+                      newArr.push('/100')
+                  }
+              }
+              this.input = newArr.join('')
+              console.log(newArr)
+          }
+          console.log(this.input)
+          this.output = eval(this.input)
+          this.calculated = true
+      }
+  },
+  
 }
 </script>
 
 <template>
-  <div>Calculator</div>
-  <input type="text" v-model="number" />
-  <input type="text" v-model="number2" />
-
-  <div>
-    <button @click="add">+</button>
-    <button @click="subtract">-</button>
+  <div class="calculator">
+      <div class="display">
+          <div class="input">
+              {{input}}
+          </div>
+          <div class="output">
+              {{output}}
+          </div>
+      </div>
+      <div class="row-1">
+          <div class="button" @click="clear">AC</div>
+          <div class="button" @click="cancel">+/-</div>
+          <div class="button" @click="enter('%')">%</div>
+          <div class="button" @click="enter('÷')">÷</div>
+      </div>
+      <div class="row-2">
+          <div class="button" @click="enter(7)">7</div>
+          <div class="button" @click="enter(8)">8</div>
+          <div class="button" @click="enter(9)">9</div>
+          <div class="button" @click="enter('*')">*</div>
+      </div>
+      <div class="row-3">
+          <div class="button" @click="enter(4)">4</div>
+          <div class="button" @click="enter(5)">5</div>
+          <div class="button" @click="enter(6)">6</div>
+          <div class="button" @click="enter('-')">-</div>
+      </div>
+      <div class="row-4">
+          <div class="button" @click="enter(1)">1</div>
+          <div class="button" @click="enter(2)">2</div>
+          <div class="button" @click="enter(3)">3</div>
+          <div class="button" @click="enter('+')">+</div>
+      </div>
+      <div class="row-5">
+          <div class="button reload" @click="reload">↻</div>  
+          <div class="button" @click="enter('0')">0</div>
+          <div class="button" @click="enter('.')">.</div>
+          <div class="button equal" @click="equal">=</div>
+      </div>
   </div>
-
-  <div>Total: {{ result }}</div>
+  
 </template>
 
-<style></style>
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.calculator{
+  min-width: 320px;
+  font-size: 2rem;
+  width:35%;
+  height:30rem;
+  margin:auto;
+  margin-top:2rem;
+  background-color: #333;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.4rem;
+  -moz-border-radius: 0.4rem;
+  -ms-border-radius: 0.4rem;
+  -o-border-radius: 0.4rem;
+  -webkit-box-shadow: 1rem 1rem 0.5rem #000000;
+  box-shadow: 0.1rem 0.1rem 0.5rem #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.display{
+  min-width: 300px;
+  font-size:1.8rem;
+  width:90%;
+  height:6rem;
+  border:1px solid rgb(0, 0, 0);
+  border-radius: 0.5rem;
+  background-color: rgb(241, 241, 234);
+  margin:1rem auto;
+  text-align: right;
+}
+.row-1,.row-2,.row-3,.row-4,.row-5{
+  width:90%;
+  height:auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:auto;
+  margin-top:0.5rem;
+}
+.button{
+  width:20%;
+  height:3rem;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(0, 0, 0);
+  -webkit-box-shadow: 0.1rem 0.1rem 0.3rem rgb(0, 0, 0);
+  box-shadow: 0.1rem 0.1rem 0.3rem rgb(0, 0, 0);
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+   -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+.button.equal{
+  width:30%;
+}
+.button:hover,.button.button.equal:hover{
+  color: #000000;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.5rem #000000;
+  box-shadow: 0.3rem 0.3rem 0.5rem #000000;
+}
+.button:active,.button.button.equal:active{
+  transform: translate(0.05rem,0.05rem);
+  -moz-transform: translate(0.05rem,0.05rem);
+  -webkit-transform: translate(0.05rem,0.05rem);
+}
+.button.reload{
+  width: 20%;
+}
+.button.button.button.reload:active{
+  transform: translate(0.05rem,0.05rem);
+  -moz-transform: translate(0.05rem,0.05rem);
+  -webkit-transform: translate(0.05rem,0.05rem);
+}
+.button:hover,.button.button.equal:hover{
+  color: #000000;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.5rem #000000;
+  box-shadow: 0.3rem 0.3rem 0.5rem #000000;
+}
+.input,output{
+  min-width: 280px;
+  width:100%;
+  margin:auto 0;
+}
+.input{
+  color:#000000;
+}
+.display .output {
+  min-width: 5rem;
+
+}
+</style>
