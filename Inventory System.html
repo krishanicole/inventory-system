@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:5173/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="module" src="./Inventory System_files/client"></script>
+
+    
+    <link rel="icon" href="http://localhost:5173/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory System</title>
+  <style type="text/css" data-vite-dev-id="C:/Users/user/desktop/inventory-system/src/components/ActivityOne.vue?vue&amp;type=style&amp;index=0&amp;lang.css">
+.number {
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 10px;
+  background-color: green;
+}
+.wrapper {
+  display: flex;
+  grid-gap: 40px;
+}
+</style><style type="text/css" data-vite-dev-id="C:/Users/user/desktop/inventory-system/src/components/ActivityTwo.vue?vue&amp;type=style&amp;index=0&amp;scoped=35eb5801&amp;lang.css">
+*[data-v-35eb5801] {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.app[data-v-35eb5801] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.calculator[data-v-35eb5801]{
+  min-height: 640px;
+  max-width: 375px;
+  font-size: 2rem;
+  width:100%;
+  height:30rem;
+  margin:auto;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  background-color: rgb white;
+  border: 4px solid rgb(241, 241, 234);
+  border-radius: 5rem;
+  -webkit-border-radius: 2.4rem;
+  -moz-border-radius: 0.4rem;
+  -ms-border-radius: 0.4rem;
+  -o-border-radius: 0.4rem;
+  -webkit-box-shadow: 1rem 1rem 0.5rem rgb white;
+  box-shadow: 0.1rem 0.1rem 0.5rem rgb lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.display[data-v-35eb5801]{
+  min-width: 20px;
+  font-size:1.8rem;
+  width:80%;
+  height:6px;
+  border: 1px solid rgb white;
+  border-radius: 0.5rem;
+  background-color: rgb white;
+  margin: auto;
+  text-align: right;
+  flex: 10%;
+  margin-top: 8.5rem;
+}
+.row-1[data-v-35eb5801],.row-2[data-v-35eb5801],.row-3[data-v-35eb5801],.row-4[data-v-35eb5801],.row-5[data-v-35eb5801]{
+  width:90%;
+  height:auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:auto;
+  margin-top: 0.7rem;
+  margin-bottom: 2.5%;
+}
+.row-1 .button[data-v-35eb5801]{
+  background-color: #f8f8f8;
+}
+.row-2 .button[data-v-35eb5801]{
+  background-color: #f8f8f8;
+}
+.row-3 .button[data-v-35eb5801]{
+  background-color: #f8f8f8;
+}
+.row-4 .button[data-v-35eb5801]{
+  background-color: #f8f8f8;
+}
+.row-5 .button[data-v-35eb5801]{
+  background-color: #f8f8f8;
+}
+.button[data-v-35eb5801]{
+  position: relative;
+  width: 20%;
+  max-block-size: 100%;
+	cursor: pointer;
+	display: block;
+	height: 3rem;
+	padding-top: 0.5%;
+	border-radius: 0.5rem;
+	transition: 0.2s;
+	user-select: none;
+  text-align: center;
+  font-weight: 100%;
+  font-size: 2rem;
+}
+.button.equal[data-v-35eb5801]{
+  width:30%;
+}
+.button[data-v-35eb5801]:hover,.button.button.equal[data-v-35eb5801]:hover{
+  color: rgb white;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.5rem #000000;
+  box-shadow: 0.3rem 0.3rem 0.5rem #000000;
+}
+.button[data-v-35eb5801]:active,.button.button.equal[data-v-35eb5801]:active{
+  transform: translate(0.05rem,0.05rem);
+  -moz-transform: translate(0.05rem,0.05rem);
+  -webkit-transform: translate(0.05rem,0.05rem);
+}
+.button.reload[data-v-35eb5801]{
+  width: 20%;
+}
+.button.button.button.reload[data-v-35eb5801]:active{
+  transform: translate(0.05rem,0.05rem);
+  -moz-transform: translate(0.05rem,0.05rem);
+  -webkit-transform: translate(0.05rem,0.05rem);
+}
+.button[data-v-35eb5801]:hover,.button.button.equal[data-v-35eb5801]:hover{
+  color: #000000;
+  -webkit-box-shadow: 0.3rem 0.3rem 0.5rem #000000;
+  box-shadow: 0.3rem 0.3rem 0.5rem #000000;
+}
+.input[data-v-35eb5801],output[data-v-35eb5801]{
+  min-width: 280px;
+  width:100%;
+  margin:auto 0;
+}
+.display .input[data-v-35eb5801]{
+  font-size: 1.60rem;
+  margin-bottom: 0.5rem;
+  color:#000000;
+  font-size: 2rem;
+}
+.display .output[data-v-35eb5801] {
+  color: #000000;
+  font-size: 4rem;
+  font-weight: 700;
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+}
+.operator[data-v-35eb5801]{
+  color: #eb6666 ;
+}
+.keys[data-v-35eb5801] {
+  color: #0ff ;
+}
+</style></head>
+  <body>
+    <div id="app" data-v-app=""><h1>Activity 1</h1><div class="number">0</div><div class="wrapper"><button>Increment</button><button>Decrement</button></div><ul><div><button>Increment 1</button><button>Decrement 1</button></div><div><button>Increment 2</button><button>Decrement 2</button></div><div><button>Increment 3</button><button>Decrement 3</button></div><div><button>Increment 4</button><button>Decrement 4</button></div><div><button>Increment 5</button><button>Decrement 5</button></div><div><button>Increment 6</button><button>Decrement 6</button></div><div><button>Increment 7</button><button>Decrement 7</button></div><div><button>Increment 8</button><button>Decrement 8</button></div><div><button>Increment 9</button><button>Decrement 9</button></div><div><button>Increment 10</button><button>Decrement 10</button></div></ul><h1>Activity 2</h1><div class="calculator" data-v-35eb5801=""><div class="display" data-v-35eb5801=""><div class="input" data-v-35eb5801=""><span data-v-35eb5801=""></span> </div><div class="output" data-v-35eb5801=""><span data-v-35eb5801=""></span> </div></div><div class="row-1" data-v-35eb5801=""><div class="button keys" data-v-35eb5801="">AC</div><div class="button keys" data-v-35eb5801="">+/-</div><div class="button keys" data-v-35eb5801="">%</div><div class="button operator" data-v-35eb5801="">÷</div></div><div class="row-2" data-v-35eb5801=""><div class="button" data-v-35eb5801="">7</div><div class="button" data-v-35eb5801="">8</div><div class="button" data-v-35eb5801="">9</div><div class="button operator" data-v-35eb5801="">*</div></div><div class="row-3" data-v-35eb5801=""><div class="button" data-v-35eb5801="">4</div><div class="button" data-v-35eb5801="">5</div><div class="button" data-v-35eb5801="">6</div><div class="button operator" data-v-35eb5801="">-</div></div><div class="row-4" data-v-35eb5801=""><div class="button" data-v-35eb5801="">1</div><div class="button" data-v-35eb5801="">2</div><div class="button" data-v-35eb5801="">3</div><div class="button operator" data-v-35eb5801="">+</div></div><div class="row-5" data-v-35eb5801=""><div class="button" data-v-35eb5801="">↻</div><div class="button" data-v-35eb5801="">0</div><div class="button operator" data-v-35eb5801="">.</div><div class="button operator" data-v-35eb5801="">=</div></div></div></div>
+    <script type="module" src="./Inventory System_files/main.js.download"></script>
+  
+
+<iframe src="./Inventory System_files/globalstorage.html" style="position: absolute; width: 1px; height: 1px; left: -9999px;"></iframe></body></html>
