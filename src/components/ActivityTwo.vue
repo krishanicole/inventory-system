@@ -234,10 +234,4 @@ export default {
   max-width: 100%;
   overflow: auto;
 }
-.operator{
-  color: #eb6666 ;
-}
-.keys {
-  color: #0ff ;
-}
 </style>
