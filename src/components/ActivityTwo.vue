@@ -235,9 +235,9 @@ export default {
   overflow: auto;
 }
 .operator{
-  color: rgb lightcoral ;
+  color: #eb6666 ;
 }
 .keys {
-  color: rgb skyblue ;
+  color: #0ff ;
 }
 </style>
