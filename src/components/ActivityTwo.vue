@@ -67,7 +67,7 @@ export default {
           <div class="button keys" @click="clear">AC</div>
           <div class="button keys" @click="cancel">+/-</div>
           <div class="button keys" @click="enter('%')">%</div>
-          <div class="button operator" @click="enter('÷')">÷</div>
+          <div class="button operator" @click="enter('/')">÷</div>
       </div>
       <div class="row-2">
           <div class="button" @click="enter(7)">7</div>
@@ -88,7 +88,7 @@ export default {
           <div class="button operator" @click="enter('+')">+</div>
       </div>
       <div class="row-5">
-          <div class="button" @click="reload">↻</div>  
+          <div class="button" @click="cancel">⟲</div>  
           <div class="button" @click="enter('0')">0</div>
           <div class="button operator" @click="enter('.')">.</div>
           <div class="button operator" @click="equal">=</div>
